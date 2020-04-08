@@ -7,6 +7,10 @@ import {Col, Row, Card, Container} from 'react-bootstrap';
 import {Layout} from './components/Layout';
 import {Home} from './components/home/Home';
 import {About} from './components/about/About';
+import {Registration} from './components/registration/Registration';
+import {Pricing} from './components/pricing/Pricing';
+import {Schedule} from './components/schedule/Schedule';
+
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Faculty from './components/faculty/Faculty';
@@ -22,6 +26,9 @@ export class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/faculty" component={Faculty}/>
+            <Route path="/registration" component={Registration}/>
+            <Route path="/pricing" component={Pricing}/>
+            <Route path="/schedule" component={Schedule}/>
           </Switch>
           </Router>
         </Layout>

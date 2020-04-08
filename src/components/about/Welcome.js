@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Jumbotron, Container, Image, Col, Row, Card, ListGroup} from 'react-bootstrap';
 import styled from 'styled-components';
 
-import ballet_dancer from "./ballet_dancer.png"
+import ballet_dancer from "./ballet_dancer.png";
 
 var rootStyle = {
     // height: '100vh',

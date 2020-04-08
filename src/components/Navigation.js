@@ -6,27 +6,34 @@ import logo from '../tma-logo-1.png';
 import {Container, Nav, Navbar, NavItem, Image, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
 
 const Styles = styled.div`
-.Nav {
-    color:black;
-  }
 
-  .Nav:hover {
-    color: #722f37;
-    border-bottom: 3px solid #722f37;
-  }
+.fancy-nav-link {
+  margin: 0 10px;
+  color: #000;
+  position: relative;
+}
 
-  .Nav a:active {
-    color: #722f37
-    border-bottom: 3px solid #722f37; 
-  }
-  .NavBar {
-    
-  }
+.fancy-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #722f36;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fancy-nav-link:hover::after {
+  opacity: 1;
+}
+
   .top-div {
     background-color: black;
     height: 10px;
   }
-  
+    
 `;
 
 export class Navigation extends Component {
@@ -53,18 +60,13 @@ export class Navigation extends Component {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" >
-                <Nav className="mr-auto">
-                <Nav.Item><Nav.Link href="/about" className="Nav">About</Nav.Link></Nav.Item>
-                <Nav.Link href="/about" className="Nav">Performance Company</Nav.Link>
-                <Nav.Link href="/faculty" className="Nav">Faculty</Nav.Link>
-                <Nav.Link href="/about" className="Nav">Registration</Nav.Link>
-                <Nav.Link href="/about" className="Nav">Pricing</Nav.Link>
-                <NavDropdown title="Schedule" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Grade 1</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Grade 2</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Grade 3</NavDropdown.Item>
-
-                </NavDropdown>
+                <Nav className="mr-auto nav">
+                  <Nav.Link href="/about" className="fancy-nav-link">About</Nav.Link>
+                  <Nav.Link href="/about" className="fancy-nav-link">Performance Company</Nav.Link>
+                  <Nav.Link href="/faculty" className="fancy-nav-link">Faculty</Nav.Link>
+                  <Nav.Link href="/registration" className="fancy-nav-link">Registration</Nav.Link>
+                  <Nav.Link href="/pricing" className="fancy-nav-link">Pricing</Nav.Link>
+                  <Nav.Link href="/schedule" className="fancy-nav-link">Schedule</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Jumbotron, Image,  Button,  Container } from 'react-bootstrap'
 import styled from 'styled-components';
-import TeamPic from './team.jpg'
+import TeamPic from './team.jpg';
 
 const Styles = styled.div`
 
@@ -30,7 +30,7 @@ export class Register extends Component {
                     This is a simple hero unit, a simple jumbotron-style component for calling
                     extra attention to featured content or information.
                 </p>
-                <Button onClick={changeURL} className="button" variant="primary" size="lg" >Register</Button>
+                <Button onClick={changeURL} className="button justifyContentCenter" variant="primary" size="lg" >Register</Button>
                 </Container>
             </Jumbotron>
             </Styles>

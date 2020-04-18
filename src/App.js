@@ -10,6 +10,10 @@ import {About} from './components/about/About';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Faculty from './components/faculty/Faculty';
+import PerformanceCompany from './components/performanceCompany/PerformanceCompany';
+import {Registration} from './components/registration/Registration';
+import {Pricing} from './components/pricing/Pricing';
+import {Schedule} from './components/schedule/Schedule';
 
 export class App extends Component {
   render() {
@@ -22,6 +26,10 @@ export class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/faculty" component={Faculty}/>
+            <Route path="/performance-company" component={PerformanceCompany}/>
+            <Route path="/registration" component={Registration}/>
+            <Route path="/pricing" component={Pricing}/>
+            <Route path="/schedule" component={Schedule}/>
           </Switch>
           </Router>
         </Layout>

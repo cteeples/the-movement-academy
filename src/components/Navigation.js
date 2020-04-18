@@ -16,7 +16,7 @@ const Styles = styled.div`
   }
 
   .Nav a:active {
-    color: #722f37
+    color: #722f37;
     border-bottom: 3px solid #722f37; 
   }
   .NavBar {
@@ -25,6 +25,7 @@ const Styles = styled.div`
   .top-div {
     background-color: black;
     height: 10px;
+    position: relative;
   }
   
 `;
@@ -55,16 +56,11 @@ export class Navigation extends Component {
             <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="mr-auto">
                 <Nav.Item><Nav.Link href="/about" className="Nav">About</Nav.Link></Nav.Item>
-                <Nav.Link href="/about" className="Nav">Performance Company</Nav.Link>
+                <Nav.Link href="/performance-company" className="Nav">Performance Company</Nav.Link>
                 <Nav.Link href="/faculty" className="Nav">Faculty</Nav.Link>
-                <Nav.Link href="/about" className="Nav">Registration</Nav.Link>
-                <Nav.Link href="/about" className="Nav">Pricing</Nav.Link>
-                <NavDropdown title="Schedule" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Grade 1</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Grade 2</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Grade 3</NavDropdown.Item>
-
-                </NavDropdown>
+                <Nav.Link href="/registration" className="Nav">Registration</Nav.Link>
+                <Nav.Link href="/pricing" className="Nav">Pricing</Nav.Link>
+                <Nav.Link href="/schedule" className="fancy-nav-link">Schedule</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

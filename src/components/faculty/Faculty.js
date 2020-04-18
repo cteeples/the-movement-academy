@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 import {Col, Row, Container, Image} from 'react-bootstrap';
+import AOS from 'aos'
+import 'aos/dist/aos.css';
+import axios from 'axios';
 
 var rootStyle = {
     height: '100vh',
@@ -16,12 +19,47 @@ h1 {
 `;
 
 export class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+          faculty: [],
+          facultyMember: {}
+        }
+
+        this.updateCurrentFaculty = this.updateCurrentFaculty.bind(this);
+
+      }
+
+    updateCurrentFaculty(item) {
+      this.setState({
+        facultyMember: item,
+      });
+    }
+
+    componentDidMount(){
+
+        const url = 'http://localhost:8000/faculty';
+
+        axios.get(url)
+          .then((Response) => {
+            this.setState({
+              faculty: Response.data
+            })
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
+        AOS.init({
+          duration : 2000
+        })
+      }
     render() {
         
         let faculty = FACULTY;
 
         let facultyList = faculty.map(person => 
-        <Row>
+        <Row data-aos='fade-right'>
             <Col lg="6">
             <Container><h1>{person.name} </h1><p>{person.description}</p> </Container>
             </Col>
@@ -36,6 +74,17 @@ export class Home extends Component {
             <div className="home">
             {facultyList}
             </div>
+
+            <ul>
+            <li>
+              {this.state.faculty.map((item) => (
+              <a href="#!" className="collection-item" key={item._id}
+              onClick={this.updateCurrentFaculty.bind(this,item)}>
+              {item.firstName}
+               </a>
+              ))}
+            </li>
+          </ul>
             </Styles>
         )
     }
@@ -57,3 +106,4 @@ const FACULTY = [
     description: "Cassie has been dancing for twenty years and teaching/choreographing for eight. She has been trained in classical ballet at the Dallas Ballet Canter and has performed in numerous productions including ``La Fille Mal Gardee'`` ``Le Corsaire`` ``Sleeping Beauty`` and ``The Nutcracker``. Cassie has also trained extensively in jazz, contemporary and musical theatre. She has a passion for choreography and story telling, with one of her pieces placing in the top 10 finalists at a national competition. Cassie has since focused her passion on the cultivation of her students and her hope is to foster confidence through dance education!",
     img: require('./cassie.jpg')}
   ];
+  

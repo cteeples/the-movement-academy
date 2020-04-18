@@ -6,6 +6,7 @@ import Register from './Register';
 import styled from 'styled-components';
 import {Col, Row, Container} from 'react-bootstrap';
 
+
 var rootStyle = {
     height: '100vh',
     minHeight : '100vh',
@@ -19,16 +20,19 @@ const Styles = styled.div`
 } 
 
 
+
 `;
 
 export class Home extends Component {
+
+
     render() {
         return (
             <Styles>
             <div className="home">
                 <ControlledCarousel/>
                 <Register/>
-                <Reviews/>
+                <Reviews />
                 <GoogleMaps/> 
 
             </div>
